@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <a href="/">Go back to home page!</a>
+                    <a href="/bookings">Go back to home page!</a>
                 </div>
             </div>
         </div>

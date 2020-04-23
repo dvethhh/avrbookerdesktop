@@ -97,6 +97,20 @@ main {
     color: #421C52;
 }
 
+.linksbar {
+    text-align: center;
+}
+
+.linksbar#menu li {
+    color: purple;
+    text-align: center;
+    display: inline;
+}
+
+.linksbar#menu a {
+    font-size: large;
+}
+
 .create-booking input[type=submit] {
     box-sizing: border-box;
     width: 40%;
@@ -108,8 +122,8 @@ footer {
     background: #BDAEC6;
     padding: 20px 10px;
     text-align: center;
-    position: fixed;
     color: aliceblue;
+    position: absolute;
 }
 
 body {
@@ -117,7 +131,8 @@ body {
     color: #636b6f;
     font-family: "Nunito", sans-serif;
     font-weight: 200;
-    height: 100vh;
+    height: 100%;
+    ;
     margin: 0;
 }
 
@@ -136,10 +151,7 @@ hr {
 }
 
 h1,
-h2 {
-    color: #421C52;
-}
-
+h2,
 h3,
 h4,
 h5,
@@ -5304,10 +5316,19 @@ a.badge-dark.focus {
 }
 
 .jumbotron {
+    color: white;
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: 0.3rem;
+    background-image: url('https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-1.2.1&w=1000&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+jumbotron h1 {
+    color: white;
 }
 
 @media (min-width: 576px) {

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Booking;
+
 use Illuminate\Http\Request;
+use App\Booking;
 
 class BookingController extends Controller
 {
@@ -12,12 +13,16 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $bookings = Booking::latest()->get();
+        $user = request()->user();
 
-        return view('/', [
-            'booking' => $bookings,
+
+        $bookings = Booking::where('useremail', $user->email)->orderBy('startdate')->orderBy('timestart')->get();
+        return view('bookings.index', [
+            'bookings' => $bookings,
         ]);
     }
 
@@ -39,7 +44,21 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate(request(), [
+            'avr' => 'required', 'startdate' => 'required', 'timestart' => 'required', 'timeend' => 'required_with:timestart|date|gt:timestart',
+        ]);
+
+        $bookings = new Booking();
+        $bookings->startdate = request('startdate');
+        $bookings->useremail = request('email');
+        $bookings->enddate = request('startdate');
+        $bookings->timestart = request('timestart');
+        $bookings->timeend = request('timeend');
+        $bookings->avr = request('avr');
+        $bookings->specialrequests = request('specialrequests');
+        $bookings->save();
+        return redirect('/bookings')->with('success', 'Booking Created Successfully!');
     }
 
     /**
@@ -48,10 +67,14 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
+    public function show($id)
     {
-        //
+        $booking = Booking::findOrFail($id);
+
+
+        return view('bookings.show', ['booking' => $booking]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -71,9 +94,24 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update($id, Request $request)
     {
-        //
+
+
+        $this->validate(request(), [
+            'avr' => 'required', 'startdate' => 'required', 'timestart' => 'required', 'timeend' => 'required_with:gt:timestart',
+        ]);
+
+        $bookings = Booking::findOrFail($id);
+        $bookings->startdate = request('startdate');
+        $bookings->enddate = request('startdate');
+        $bookings->timestart = request('timestart');
+        $bookings->timeend = request('timeend');
+        $bookings->avr = request('avr');
+        $bookings->specialrequests = request('specialrequests');
+        $bookings->save();
+
+        return redirect('/bookings')->with('update', 'Booking Updated Successfully!');
     }
 
     /**
@@ -82,8 +120,11 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
-        //
+        $bookings = Booking::findOrFail($id);
+        $bookings->delete();
+
+        return redirect('/bookings');
     }
 }

@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::request('/', 'BookingController@index');
+Route::get('/bookings', 'BookingController@index')->middleware('auth');
+Route::get('/admin', 'AdminController@admin')->middleware('is_admin');
+Route::post('/bookings', 'BookingController@store')->middleware('auth');
+Route::get('/bookings/{id}', 'BookingController@show')->middleware('auth');
+Route::post('/bookings/{id}', 'BookingController@update')->middleware('auth');
+Route::delete('/bookings/{id}', 'BookingController@destroy')->middleware('auth');
