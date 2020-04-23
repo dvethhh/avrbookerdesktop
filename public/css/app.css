@@ -102,6 +102,7 @@ main {
 }
 
 .linksbar#menu li {
+    font-size: large;
     color: purple;
     text-align: center;
     display: inline;

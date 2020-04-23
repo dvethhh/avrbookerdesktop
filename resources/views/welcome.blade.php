@@ -9,9 +9,9 @@
 </div>
 <p>
     <ul class="linksbar" id="menu">
-        <li><a href="/bookings">Bookings | </a></li>
-        <li><a href="/login">Login |</a></li>
-        <li><a href="/register">Register | </a></li>
+        <li><a href="/bookings">Bookings</a> | </li>
+        <li><a href="/login">Login</a> | </li>
+        <li><a href="/register">Register</a> | </li>
         <li><a href="/admin">Admin</a></li>
     </ul>
 </p>
