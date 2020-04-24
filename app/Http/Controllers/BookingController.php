@@ -46,7 +46,7 @@ class BookingController extends Controller
     {
 
         $this->validate(request(), [
-            'avr' => 'required', 'startdate' => 'required', 'timestart' => 'required', 'timeend' => 'required_with:timestart|date|gt:timestart',
+            'avr' => 'required', 'startdate' => 'required', 'timestart' => 'required', 'timeend' => 'required',
         ]);
 
         $bookings = new Booking();

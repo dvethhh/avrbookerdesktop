@@ -1,0 +1,22 @@
+runtime: php72
+
+env_variables:
+  ## Put production environment variables here.
+  APP_KEY: base64:SwI+YyLCxx1Pn1Ib2jGs5ywtaYM2cPsXJS7aCpeeTw4=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+
+  DB_CONNECTION: mysql
+  DB_HOST: localhost
+  DB_PORT: 3306
+  DB_DATABASE: laravel
+  DB_USERNAME: root
+  DB_PASSWORD: DM63Co7tIpje44iw
+  DB_SOCKET: /cloudsql/avrbooker:asia-southeast1:avrbookersql
+#we need this for the flex environment
+beta_settings:
+  # for Cloud SQL, set this value to the Cloud SQL connection name,
+  # e.g. "project:region:cloudsql-instance"
+  cloud_sql_instances: avrbooker:asia-southeast1:avrbookersql
