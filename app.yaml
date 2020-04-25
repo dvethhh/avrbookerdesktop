@@ -5,16 +5,16 @@ env_variables:
   APP_KEY: base64:SwI+YyLCxx1Pn1Ib2jGs5ywtaYM2cPsXJS7aCpeeTw4=
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
-  CACHE_DRIVER: database
-  SESSION_DRIVER: database
+  CACHE_DRIVER: cookie
+  SESSION_DRIVER: cookie
 
-  DB_CONNECTION: mysql
-  DB_HOST: localhost
-  DB_PORT: 3306
-  DB_DATABASE: laravel
-  DB_USERNAME: root
-  DB_PASSWORD: DM63Co7tIpje44iw
-  DB_SOCKET: /cloudsql/avrbooker:asia-southeast1:avrbookersql
+  # DB_CONNECTION: mysql
+  # DB_HOST: 127.0.0.1
+  # DB_PORT: 33060
+  # DB_DATABASE: laravel
+  # DB_USERNAME: avrbookeradmin
+  # DB_PASSWORD: C0mpl3xP4ssw0rd
+  # DB_SOCKET: /cloudsql/avrbooker:asia-southeast1:avrbookersql
 #we need this for the flex environment
 beta_settings:
   # for Cloud SQL, set this value to the Cloud SQL connection name,
