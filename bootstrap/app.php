@@ -51,10 +51,6 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
-
-
-
-return $app;
 # [START] Add the following block to `bootstrap/app.php`
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +64,6 @@ return $app;
 */
 $app->useStoragePath(env('APP_STORAGE', base_path() . '/storage'));
 # [END]
+
+
+return $app;
